@@ -1,4 +1,4 @@
-package test.clipdrawable;
+package test.textclipdrawable;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -17,9 +17,10 @@ public class MainActivity extends AppCompatActivity {
         ImageView view = (ImageView) findViewById(R.id.view);
         Resources res = getResources();
         Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.unnamed);
-        ClipDrawable drawable = new ClipDrawable.Builder(bitmap)
+        int textSize = res.getDimensionPixelSize(R.dimen.textSize);
+        TextClipDrawable drawable = new TextClipDrawable.Builder(bitmap)
                 .setText("5")
-                .setTextSize(res.getDimensionPixelSize(R.dimen.textSize))
+                .setTextSize(textSize)
                 .setTextGravity(Gravity.CENTER)
                 .build();
         view.setImageDrawable(drawable);
